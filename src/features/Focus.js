@@ -20,3 +20,5 @@ const styles = StyleSheet.create({
         color: colors.white
     }
 })
+
+//changes
