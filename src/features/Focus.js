@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {View, Text, StyleSheet, TextInput, TouchableOpacity} from 'react-native'
 import { colors } from "../utils/colors"
 
-export const Focus = () => {
+export const Focus = ({addSubject}) => {
     const [subject, setSubject] = useState(null)
     return (
     <View style= {styles.container}>
@@ -18,7 +18,7 @@ export const Focus = () => {
                 ></TextInput>
 
                 <View style={styles.containerBtn}>
-                    <TouchableOpacity style={styles.roundButton}>
+                    <TouchableOpacity style={styles.roundButton} onPress={() => addSubject(subject)}>
                         <Text style={styles.buttonText}>+</Text>
                     </TouchableOpacity>
                 </View>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     inputContainer:{
-        flex: 0.5,
+        flex: 0.5, 
         paddingTop: 40,
         paddingLeft: 5,
         justifyContent: 'top',
@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
         // flex: 1,
         width: 350,
         backgroundColor: colors.white,
-        fontSize: 10,
+        fontSize: 12,
         borderRadius: 10,
         marginRight: 5
     },
     text: {
         paddingLeft: 5,
         paddingBottom: 5,
-        fontSize: 10,
+        fontSize: 12,
         color: colors.white
     },
     subject: {
