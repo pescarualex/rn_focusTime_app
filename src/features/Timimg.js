@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
+import { colors } from '../utils/colors';
 
 export const Timing = ({ onChangeTime }) => {
   const [selectedMinute, setSelectedMinute] = useState(null);
@@ -28,70 +29,60 @@ export const Timing = ({ onChangeTime }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>Select Minutes</Text>
+    <View style={styles.row}>
+      <Text style={styles.label}>Select Minutes:</Text>
       <RNPickerSelect
         onValueChange={handleMinuteChange}
         items={minutes}
         placeholder={{ label: 'Select minute', value: null }}
         style={pickerSelectStyles}
       />
-      <Text style={styles.label}>Select Seconds</Text>
+    </View>
+    <View style={styles.row}>
+      <Text style={styles.label}>Select Seconds:</Text>
       <RNPickerSelect
         onValueChange={handleSecondChange}
         items={seconds}
         placeholder={{ label: 'Select second', value: null }}
         style={pickerSelectStyles}
       />
-      {/* <Text style={styles.result}>
-        Selected: {selectedMinute !== null ? selectedMinute : '--'}:{selectedSecond !== null ? selectedSecond : '--'}
-      </Text> */}
     </View>
+  </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 0.8,
-    justifyContent: 'left',
-    alignItems: 'left',
-    padding: 10,
-    backgroundColor: '#000039',
-  },
-  label: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    marginBottom: 10,
-  },
-//   result: {
-//     color: '#FFFFFF',
-//     fontSize: 24,
-//     marginTop: 20,
-//   },
-});
 
-const pickerSelectStyles = StyleSheet.create({
-  inputIOS: {
-    fontSize: 16,
-    paddingVertical: 12,
-    paddingHorizontal: 10,
-    borderWidth: 1,
-    borderColor: '#FFFFFF',
-    borderRadius: 4,
-    color: '#FFFFFF',
-    paddingRight: 30,
-    backgroundColor: '#1E90FF',
-    marginVertical: 10,
-  },
-  inputAndroid: {
-    fontSize: 16,
-    paddingVertical: 8,
-    paddingHorizontal: 10,
-    borderWidth: 0.5,
-    borderColor: '#FFFFFF',
-    borderRadius: 8,
-    color: '#FFFFFF',
-    paddingRight: 30,
-    backgroundColor: '#1E90FF',
-    marginVertical: 10,
-  },
-});
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 0.5,
+      padding: 10,
+      backgroundColor: 'rgba(0,0,57, 0.5)',
+    },
+    row: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: 18,
+    },
+    label: {
+      color: '#FFFFFF',
+      fontSize: 13,
+      marginRight: 10,
+    },
+  });
+  
+  const pickerSelectStyles = StyleSheet.create({
+    inputAndroid: {
+      fontSize: 14,
+      width: 270,
+      paddingVertical: 8,
+      paddingHorizontal: 10,
+      borderWidth: 0.5,
+      borderColor: '#FFFFFF',
+      borderRadius: 15,
+      color: colors.white,
+      paddingRight: 30, // to ensure the text is never behind the icon
+      backgroundColor: 'rgba(30,144,255, 0.5)',
+    },
+  });
