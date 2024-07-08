@@ -3,5 +3,6 @@ export const colors = {
     darkPowderBlue: '#000039',
     grey: 'grey',
     black: 'black',
-    openBlue: '#1E90FF'
+    openBlue: '#1E90FF',
+    navy: "#000080" 
 }
