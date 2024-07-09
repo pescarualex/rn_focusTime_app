@@ -6,15 +6,21 @@ import React, {useState} from 'react';
 
 export default function App() {
 
-  const [currentSubject, setCurrentSubject] = useState("test");
+  const [currentSubject, setCurrentSubject] = useState(currentSubject);
+  const [history, setHistory] = useState([]);
 
   return (
     <SafeAreaView style = {styles.container}>
-      {!currentSubject ? (<Focus addSubject = {setCurrentSubject} />) : 
+      {!currentSubject ? (
+        <>
+        <Focus addSubject = {setCurrentSubject} />
+        <FocusHistory history={history}/>
+        </>
+      ) : 
         (<Timer 
           focusSubject = {currentSubject}
           onTimerEnd = {() => {}}
-          clearSubject = {() => {}}
+          clearSubject = {() => setCurrentSubject(null)}
 
         />)}
     </SafeAreaView>

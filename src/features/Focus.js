@@ -45,7 +45,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         fontSize: 12,
         borderRadius: 10,
-        marginRight: 5
+        marginRight: 5,
+        padding: 5
     },
     text: {
         paddingLeft: 5,
